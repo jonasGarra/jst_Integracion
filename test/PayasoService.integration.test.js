@@ -1,6 +1,6 @@
 // tests/payasoService.integration.test.js
-const { registerPayaso } = require("../src/payasoService");
-const db = require("../src/db");
+const { registerPayaso } = require("../src/service/payasoService.js");
+const db = require("../src/service/db.js");
 
 describe("Pruebas de Integración: PayasoService + Database", () => {
   // Antes de cada prueba, limpiamos la base de datos para no arrastrar datos
@@ -31,7 +31,7 @@ describe("Pruebas de Integración: PayasoService + Database", () => {
     // 2. Intentamos registrar a otra persona con el mismo email
     // Usamos rejects.toThrow para capturar errores asíncronos en Jest
     await expect(
-      registerPayaso("Carlos Falso", "carlos@ejemplo.com"),
+      registerPayaso("Carlos Falso", "carlosfalse@ejemplo.com"),
     ).rejects.toThrow("El payaso ya está registrado con ese email");
   });
 
