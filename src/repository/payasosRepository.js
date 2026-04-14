@@ -24,24 +24,24 @@ const db = {
   },
 
   // 2. Buscar usuario
-  findUserByEmail: async (email) => {
+  findPayasoByEmail: async (email) => {
     // get() devuelve la primera fila que coincida
-    const user = await dbConnection.get(
+    const payaso = await dbConnection.get(
       "SELECT * FROM usuarios WHERE email = ?",
       [email],
     );
-    return user || null;
+    return payaso || null;
   },
 
   // 3. Guardar usuario
-  saveUser: async (user) => {
+  savePayaso: async (payaso) => {
     // run() ejecuta la consulta (INSERT, UPDATE, DELETE)
     const result = await dbConnection.run(
       "INSERT INTO usuarios (name, email) VALUES (?, ?)",
-      [user.name, user.email],
+      [payaso.name, payaso.email],
     );
     // SQLite devuelve el ID autogenerado en result.lastID
-    return { id: result.lastID, name: user.name, email: user.email };
+    return { id: result.lastID, name: payaso.name, email: payaso.email };
   },
 
   // 4. Limpiar la base de datos entre pruebas (Borramos los registros, no la tabla)

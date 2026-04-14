@@ -1,6 +1,6 @@
 // tests/payasoService.integration.test.js
 const { registerPayaso } = require("../src/service/payasoService.js");
-const db = require("../src/service/db.js");
+const db = require("../src/repository/payasosRepository.js");
 
 describe("Pruebas de Integración: PayasoService + Database", () => {
   // Antes de cada prueba, limpiamos la base de datos para no arrastrar datos
